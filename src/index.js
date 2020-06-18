@@ -43,8 +43,13 @@ const tasks = [{
     '.tasks-list-sections .list-group',
   );
 
+  const form = document.forms['addTask'];
+  const inputTitle = form.elements['title'];
+  const inputBody = form.elements['body'];
 
+  //Events
   renderAllTasks(objOfTask);
+  form.addEventListener('submit', onFormSubmitHandler);
 
   function renderAllTasks(taskList) {
     if (!taskList) {return
@@ -52,6 +57,7 @@ const tasks = [{
       return;
     }
     const fragment = document.createDocumentFragment();
+
     Object.values(taskList).forEach(task => {
       const li = listItemTemplate(task);
       fragment.appendChild(li);
@@ -88,4 +94,31 @@ const tasks = [{
       return li;
   }
 
+  function onFormSubmitHandler(e){
+    e.preventDefault();
+    const titleValue = inputTitle.value;
+    const bodyValue = inputBody.value;
+
+    if(!titleValue || !bodyValue) {
+      alert ("Пожалуйста введите title и body");
+      return;
+    }
+
+    const task = createNewTask(titleValue, bodyValue);
+    const listItem = listItemTemplate(task);
+    listContainer.insertAdjacentElement('afterbegin', listItem);
+    form.reset();
+  }
+
+  function createNewTask(title, body) {
+    const newTask = {
+      title,
+      body,
+      completed: false,
+      _id: `task-${Math.random()}`,
+    };
+
+    objOfTask[newTask._id]=newTask;
+    return{...newTask};
+  }
 })(tasks);
