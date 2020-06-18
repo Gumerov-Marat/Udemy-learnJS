@@ -1,7 +1,29 @@
-// @import './app/app.scss';
-
-// @import './components/logo/logo';
-// @import './components/text-field/text-field';
-
-// @import './pages/colors-and-types/colors-and-types.scss';
-// @import './pages/form-elements/form-elements.scss';
+.container {
+  display: flex;
+  justify-content:center;
+}
+.list-group {
+  width: 700px;
+}
+.container {
+  border: 1px solid red;
+  max-width: 700px;
+}
+.form-section {
+  display: flex;
+  justify-content:center;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  margin-bottom: 100px;
+}
+form {
+  width: 100px;
+  margin-bottom: 20px;
+}
+input {
+  width: 100px;
+  margin-bottom: 20px;
+}
