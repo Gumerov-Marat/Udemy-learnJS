@@ -63,7 +63,9 @@ const tasks = [{
   //Events
   renderAllTasks(objOfTask);
   form.addEventListener('submit', onFormSubmitHandler);
-  
+    //Часть II
+    //Вешаем обработку события на контейнер лист контенер
+  listContainer.addEventListener('click', onDeleteHandler);
   /*
     функция renderAllTasks
     - принимает список задач (оьъект) (с провееркой)
@@ -107,6 +109,7 @@ const tasks = [{
       'aling-item-center',
       'flex-wrap', 'mt-2'
       );
+      li.setAttribute('data-task-id', _id);
 
       const span = document.createElement('span');
       span.textContent = title;
@@ -172,4 +175,42 @@ const tasks = [{
     objOfTask[newTask._id]=newTask;
     return{...newTask};
   }
+
+  /*
+  часть 2
+  */
+  /*
+   Функция: deleteTask
+   - принимает id которую надо удалить
+   - спрашивает подтверждение
+  */
+ function deleteTask(id) {
+   const { title } = objOfTask[id];
+   const isConfirm = confirm(`Точно вы хотите удалить задачу: ${title} ?`);
+   if (!isConfirm) return isConfirm;
+   return isConfirm;
+ }
+
+  /*
+    Функция: deleteTaskFromHtml
+    - принимает подтверждение и элемент
+    - удаляет
+  */
+  function deleteTaskFromHtml(confirmed,el) {
+   if (!confirmed) return;
+   el.remove();
+ }
+
+ function onDeleteHandler({target}) {
+  //  console.log(e.target);
+  if (target.classList.contains('delete-btn')){
+  //   console.log('delete');
+    const parent = target.closest('[data-task-id]');
+    const id = parent.dataset.taskId;
+    const confirmed = deleteTask(id);
+    console.log(confirmed);
+    deleteTaskFromHtml( confirmed, parent);
+  }
+ }
+
 })(tasks);
