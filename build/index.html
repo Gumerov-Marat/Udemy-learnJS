@@ -1,50 +1,46 @@
 <!DOCTYPE html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
-  <title>Document</title>
-<link href="index.css" rel="stylesheet"></head>
-<body>
-  <div class="form-section mt5">
-    <div class="container">
-      <div class="row">
-        <div class="col col-8 mx-2">
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">Add new task</div>
-              <form name="addTask">
-                <input class="form-control" type="text" name="title" id="title" placeholder="Task title">
-                <input class="form-contol mt-3" type="text" name="body" id="body" placeholder="Task body">
-                <button class="btn btn-primary mt-4" type="submit">Add Task</button>
-              </form>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+  <link href="index.css" rel="stylesheet"></head>
+  <body>
+    <nav class="header navbar navbar-dark bg-primary"><a class="navbar-brand">Navbar</a>
+      <form class="form-inline">
+        <select class="form-control form-control-sm" id="themeSelect">
+          <option value="default">Theme Default</option>
+          <option value="light">Theme Light</option>
+          <option value="dark">Theme Dark</option>
+        </select>
+      </form>
+    </nav>
+    <div class="form-section mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col col-8 mx-auto">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Add new task</h5>
+                <form name="addTask">
+                  <input class="form-control" id="title" type="text" name="title" placeholder="Task title">
+                  <input class="form-control mt-3" id="body" type="text" name="body" placeholder="Task body">
+                  <button class="btn btn-primary mt-4" type="submit">Add task</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="form-section tasks-list-sections mt-5">
-    <div class="container">
-      <ul class="list-group"></ul>
+    <div class="tasks-list-section mt-5">
+      <div class="container">
+        <ul class="list-group"></ul>
+      </div>
     </div>
-  </div>
-  <div class="container">
-    <div class="dev">
-      <p>
-        Задача
-        Существует базовый лист с формой с двумя полями title и body
-        список задач должен выводится ниже под формой.
-        задача реализовать функционал на js:
-        Пользователь чтото вводит, нажимает добавить задачу
-        и задача добавляется,  также можно удалять.
-      </p>
-      <p>
-        Страница изначально стилизовалась бутстрапом
-        в рамках данного урока мы его не касаемся
-        (так как надо его изучить для этого)
-      </p>
-    </div>
-  </div>
-<script src="js/index.js"></script></body>
-<script src="./index.js"></script>
+    <script src="app.js"></script>
+  <script src="js/index.js"></script></body>
+</html>
